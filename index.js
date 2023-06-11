@@ -31,7 +31,8 @@ const User = new mongoose.model("Users", userSchema);
 
 
 app.get("/", (req, res) => {
-  res.send("backend started !!!");
+  const getall = User.find()
+  res.status(200).json({getall,message:"server started"})
 });
 
 app.post("/registeruser", (req, res) => {
